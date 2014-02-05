@@ -3,7 +3,11 @@
 	text-align: center;
 }
 
-div.box, div.cell {
+#flash {
+	margin: 20px;
+}
+
+.box, div.cell {
 	display: inline-block;
 }
 
@@ -25,7 +29,5 @@ body {
 	background-color: #DDD;
 }
 
-.white {
-	background-color: : white;
-}
+
 
