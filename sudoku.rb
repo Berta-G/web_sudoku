@@ -4,10 +4,12 @@ require_relative './lib/cell'
 require_relative './helpers/application'
 require 'sinatra/partial' 
 require 'rack-flash'
+enable :sessions
+set :session_secret, "17051982"
 set :partial_template_engine, :erb
 use Rack::Flash
 
-enable :sessions
+
 
 get '/' do
 	prepare_to_check_solution
