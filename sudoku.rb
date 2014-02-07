@@ -8,6 +8,9 @@ enable :sessions
 set :session_secret, "17051982"
 set :partial_template_engine, :erb
 use Rack::Flash
+configure :production do
+  require 'newrelic_rpm'
+end
 
 get '/' do
 	prepare_to_check_solution
