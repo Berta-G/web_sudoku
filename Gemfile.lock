@@ -3,6 +3,7 @@ GEM
   specs:
     daemons (1.1.9)
     eventmachine (1.0.3)
+    newrelic_rpm (3.7.2.192)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
@@ -26,6 +27,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  newrelic_rpm
   rack-flash3
   shotgun
   sinatra
