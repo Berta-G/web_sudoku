@@ -19,7 +19,6 @@ get '/' do
 end
 
 post '/' do
-	puts "Level = #{params[:level]}"
 	if params[:level]
 		session[:current_solution] = nil
 		session[:level] = params[:level]
