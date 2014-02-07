@@ -9,8 +9,6 @@ set :session_secret, "17051982"
 set :partial_template_engine, :erb
 use Rack::Flash
 
-
-
 get '/' do
 	prepare_to_check_solution
 	generate_new_puzzle_if_necessary
@@ -21,10 +19,15 @@ get '/' do
 end
 
 post '/' do
-	cells = params[:cell]
-	# session[:current_solution] = cells.map { |value| value.to_i }.join
-	session[:current_solution] = box_order_to_row_order(cells).map { |value| value.to_i }.join
-	session[:check_solution] = true
+	puts "Level = #{params[:level]}"
+	if params[:level]
+		session[:current_solution] = nil
+		session[:level] = params[:level]
+	else
+		cells = params[:cell]
+		session[:current_solution] = box_order_to_row_order(cells).map { |value| value.to_i }.join
+		session[:check_solution] = true
+	end
 	redirect to("/")
 end
 
@@ -43,7 +46,8 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
-	index_to_remove = (0..80).to_a.sample(20)
+	level = session[:level] == "Hard" ? 40 : 25
+	index_to_remove = (0..80).to_a.sample(level)
 	session[:solution].map.with_index { |n, i| n = index_to_remove.include?(i) ? "0" : n }
 end
 

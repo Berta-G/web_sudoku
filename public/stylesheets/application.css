@@ -7,8 +7,12 @@
 	margin: 20px;
 }
 
-.box, div.cell {
+div.box, div.cell {
 	display: inline-block;
+}
+
+.box {
+outline: solid;
 }
 
 .cell input {

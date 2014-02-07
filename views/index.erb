@@ -23,11 +23,20 @@
 						<% end %>
 					</div>
 				<% end %>
-				<button>Check solution</button>
+				<button>Check Numbers</button>
 			</form>
 		</div>
+		<form action="/" method="post">
+			<input type="hidden" name="level" value="Easy">
+			<button>Easy Sudoku</button>
+		</form>
+		<form action="/" method="post">
+			<input type="hidden" name="level" value="Hard">
+			<button>Hard Sudoku</button>
+		</form>
+		<a href= /solution> <button>Get Solution</button></a>
 		<div id="flash">
   		<%= flash[:notice] %>
-	</div>
+		</div>
 	</body>
 </html>
