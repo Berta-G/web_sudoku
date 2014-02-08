@@ -5,9 +5,17 @@
 		<link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<h1>Life is too short for playing Sudoku</h1>
-		<div id="sudoku">
-			<form action="/" method="post">
+		<h1>Life is too short for playing Sudoku!!</h1>
+		<img src='/images/heart-broken-black-love.jpg'>
+		<ul class='levels'>
+			<li><a href= /?level=Easy> <button class='level'>Easy</button></a></li>
+			<li><a href= /?level=Hard> <button class='level'>Hard</button></a></li>
+		</ul>	
+		<div id="flash">
+  			<%= flash[:notice] %>
+			</div>
+		<form action="/" method="post">
+			<div id="sudoku">
 				<% 3.times do |row| %>
 					<div class='row'>
 						<% 3.times do |box| %>
@@ -23,20 +31,9 @@
 						<% end %>
 					</div>
 				<% end %>
-				<button>Check Numbers</button>
-			</form>
-		</div>
-		<form action="/" method="post">
-			<input type="hidden" name="level" value="Easy">
-			<button>Easy Sudoku</button>
+			</div>
+			<button class='check'>Is it ok so far&#63;</button>		
 		</form>
-		<form action="/" method="post">
-			<input type="hidden" name="level" value="Hard">
-			<button>Hard Sudoku</button>
-		</form>
-		<a href= /solution> <button>Get Solution</button></a>
-		<div id="flash">
-  		<%= flash[:notice] %>
-		</div>
+		<a href= /solution> <p class='give_up'>I give up! show me the solution, plz!!!!</p></a>
 	</body>
 </html>

@@ -13,31 +13,33 @@ configure :production do
 end
 
 get '/' do
+	session[:current_solution] = nil if params[:level]
 	prepare_to_check_solution
 	generate_new_puzzle_if_necessary
 	@current_solution = session[:current_solution] || session[:puzzle]
 	@solution = session[:solution]
 	@puzzle = session[:puzzle]
+	session[:check_solution] = nil
 	erb :index
 end
 
 post '/' do
-	if params[:level]
-		session[:current_solution] = nil
-		session[:level] = params[:level]
-	else
-		cells = params[:cell]
-		session[:current_solution] = box_order_to_row_order(cells).map { |value| value.to_i }.join
-		session[:check_solution] = true
-	end
+	cells = params[:cell]
+	session[:current_solution] = box_order_to_row_order(cells).map { |value| value.to_i }.join
+	session[:check_solution] = true
 	redirect to("/")
 end
 
 get '/solution' do
+	flash[:notice] = nil
 	@solution = session[:solution]
 	@puzzle = session[:puzzle]
 	@current_solution = session[:solution]
 	erb :index
+end
+
+get '/sos' do
+	erb :sos
 end
 
 def random_sudoku
@@ -48,17 +50,14 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
-	level = session[:level] == "Hard" ? 40 : 25
+	level = params[:level] == "Hard" ? 40 : 25
 	index_to_remove = (0..80).to_a.sample(level)
 	session[:solution].map.with_index { |n, i| n = index_to_remove.include?(i) ? "0" : n }
 end
 
 def prepare_to_check_solution
 	@check_solution = session[:check_solution]
-	 if @check_solution
-    flash[:notice] = "Incorrect values are highlighted in yellow"
-  end
-	session[:check_solution] = nil
+   flash[:notice] = @check_solution ? "Green values are WRONG!" : nil
 end
 
 def generate_new_puzzle_if_necessary

@@ -4,8 +4,11 @@ gem 'sinatra'
 gem 'thin'
 gem 'sinatra-partial'
 gem 'rack-flash3'
-gem 'newrelic_rpm'
-gem 'unicorn'
+
+group :production do
+	gem 'newrelic_rpm'
+	gem 'unicorn'
+end
 
 group :development, :test do
 	gem 'shotgun'
