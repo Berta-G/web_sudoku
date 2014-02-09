@@ -39,7 +39,7 @@ body {
 	left:20%;
 	top:20%;
 	height: auto;
-	width: :auto;
+	width: auto;
 }
 
 .cell input {
@@ -66,6 +66,7 @@ body {
 
 .level:hover {
 	text-shadow: 0 0 20px #ff0000;
+	cursor: hand;
 }
 
 .level {
@@ -111,6 +112,7 @@ body {
 	background-color: 66FF66;
 	color: black;
 	font-weight: bold;
+	cursor: hand;
 }
 .give_up:before
 {
@@ -126,6 +128,7 @@ body {
 
 .give_up:hover:after {
 	border-color: 66FF66 66FF66 transparent transparent;
+	cursor: hand;
 }
 
 .give_up:after
@@ -142,12 +145,14 @@ body {
 
 .check:hover:after {
 	border-color: 66FF66 66FF66 transparent transparent;
+	cursor: hand;
 }
 
 .check:hover {
 	background-color: 66FF66;
 	color: black;
 	font-weight: bold;
+	cursor: hand;
 }
 
 .check {
@@ -203,5 +208,5 @@ img {
 	width:30em;
 	position: absolute;
 	right:7%;
-	top: 40%;
+	top: 37%;
 }

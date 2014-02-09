@@ -38,10 +38,6 @@ get '/solution' do
 	erb :index
 end
 
-get '/sos' do
-	erb :sos
-end
-
 def random_sudoku
 	seed = (1..9).to_a.shuffle + Array.new(81-9, 0)
 	sudoku = Sudoku.new(seed.join)
