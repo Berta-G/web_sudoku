@@ -1,7 +1,6 @@
 
 
 #flash {
-/*	margin: 200px;*/
 	position:absolute;
 	top: 17%;
 	left: 30%;
@@ -10,10 +9,8 @@
 	font-size: 20;
 }
 
-
 div.box, div.cell {
 	display: inline-block;
-
 }
 
 .box {
@@ -24,8 +21,7 @@ h1 {
 	color: rgb(232,232,232);
 	font-family: courier;
 	font-size: 28;
-	text-align: center;
-	
+	text-align: center;	
 }
 
 body {
@@ -68,6 +64,10 @@ body {
 	left: 7%;	
 }
 
+.level:hover {
+	text-shadow: 0 0 20px #ff0000;
+}
+
 .level {
 	width: 90px;
   height: 90px;
@@ -81,6 +81,8 @@ body {
   position: relative;
   display: inline-block;
 }
+
+
 
 .give_up {
 	position: absolute;
@@ -105,6 +107,11 @@ body {
 	word-wrap: break-word;
 }
 
+.give_up:hover {
+	background-color: 66FF66;
+	color: black;
+	font-weight: bold;
+}
 .give_up:before
 {
 	content: ' ';
@@ -117,6 +124,10 @@ body {
 	border-color:  rgb(232,232,232) rgb(232,232,232) transparent transparent ;
 }
 
+.give_up:hover:after {
+	border-color: 66FF66 66FF66 transparent transparent;
+}
+
 .give_up:after
 {
 	content: ' ';
@@ -127,6 +138,16 @@ body {
 	top: 130px;
 	border: 13px solid;
 	border-color:  black black transparent transparent;
+}
+
+.check:hover:after {
+	border-color: 66FF66 66FF66 transparent transparent;
+}
+
+.check:hover {
+	background-color: 66FF66;
+	color: black;
+	font-weight: bold;
 }
 
 .check {
